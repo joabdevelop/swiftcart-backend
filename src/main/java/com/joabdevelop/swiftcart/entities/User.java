@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -78,6 +80,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    @JsonIgnore
     public List<Order> getOrders() {
         return orders;
     }
