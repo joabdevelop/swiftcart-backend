@@ -9,10 +9,13 @@ import org.springframework.context.annotation.Profile;
 
 import com.joabdevelop.swiftcart.entities.Category;
 import com.joabdevelop.swiftcart.entities.Order;
+import com.joabdevelop.swiftcart.entities.Product;
 import com.joabdevelop.swiftcart.entities.User;
 import com.joabdevelop.swiftcart.entities.enums.OrderStatus;
+
 import com.joabdevelop.swiftcart.repositories.CategoryRepository;
 import com.joabdevelop.swiftcart.repositories.OrderRepository;
+import com.joabdevelop.swiftcart.repositories.ProductRepository;
 import com.joabdevelop.swiftcart.repositories.UserRepository;
 
 @Configuration
@@ -22,14 +25,17 @@ public class TestConfig implements CommandLineRunner {
     private final UserRepository userRepository;
     private final OrderRepository orderRepository;
     private final CategoryRepository categoryRepository;
+    private final ProductRepository productRepository;
 
     public TestConfig(
             UserRepository userRepository,
             OrderRepository orderRepository,
-            CategoryRepository categoryRepository) {
+            CategoryRepository categoryRepository,
+            ProductRepository productRepository) {
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
         this.categoryRepository = categoryRepository;
+        this.productRepository = productRepository;
     }
 
     @Override
@@ -50,5 +56,13 @@ public class TestConfig implements CommandLineRunner {
         Order o3 = new Order(null, Instant.parse("2022-07-05T20:19:12Z"), OrderStatus.DELIVERED, u1);
 
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+
+        Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
+        Product p2 = new Product(null, "Smart TV", "Apple TV", 1000.0, "");
+        Product p3 = new Product(null, "Macbook Pro", "Apple Macbook Pro", 1990.5, "");
+        Product p4 = new Product(null, "PC Gamer", "ASUS ROG", 3990.5, "");
+        Product p5 = new Product(null, "Rails for Dummies", "Learn Ruby on Rails", 20.5, "");
+
+        productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
     }
 }
