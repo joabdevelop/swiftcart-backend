@@ -11,12 +11,14 @@ import com.joabdevelop.swiftcart.entities.Category;
 import com.joabdevelop.swiftcart.entities.Order;
 import com.joabdevelop.swiftcart.entities.Product;
 import com.joabdevelop.swiftcart.entities.User;
+import com.joabdevelop.swiftcart.entities.OrderItem;
 import com.joabdevelop.swiftcart.entities.enums.OrderStatus;
 
 import com.joabdevelop.swiftcart.repositories.CategoryRepository;
 import com.joabdevelop.swiftcart.repositories.OrderRepository;
 import com.joabdevelop.swiftcart.repositories.ProductRepository;
 import com.joabdevelop.swiftcart.repositories.UserRepository;
+import com.joabdevelop.swiftcart.repositories.OrderItemRepository;
 
 @Configuration
 @Profile("test")
@@ -26,16 +28,19 @@ public class TestConfig implements CommandLineRunner {
     private final OrderRepository orderRepository;
     private final CategoryRepository categoryRepository;
     private final ProductRepository productRepository;
+    private final OrderItemRepository orderItemRepository;
 
     public TestConfig(
             UserRepository userRepository,
             OrderRepository orderRepository,
             CategoryRepository categoryRepository,
-            ProductRepository productRepository) {
+            ProductRepository productRepository,
+            OrderItemRepository orderItemRepository) {
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
+        this.orderItemRepository = orderItemRepository;
     }
 
     @Override
@@ -72,5 +77,13 @@ public class TestConfig implements CommandLineRunner {
         p5.getCategories().add(c2);
 
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+
+        orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+
     }
 }
