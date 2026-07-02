@@ -17,6 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_order")
@@ -35,6 +36,7 @@ public class Order implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "client_id")
+    @JsonIgnoreProperties("orders")
     private User client;
 
     @OneToMany(mappedBy = "id.order")
