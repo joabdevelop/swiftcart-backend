@@ -5,9 +5,9 @@
 [![Maven](https://img.shields.io/badge/Maven-Build%20Tool-blue.svg)](https://maven.apache.org/)
 [![Database](https://img.shields.io/badge/Database-PostgreSQL%20%2F%20H2-blue.svg)](https://www.postgresql.org/)
 
-O **SwiftCart** é uma API REST robusta que gerencia o núcleo de operações de uma plataforma moderna de e-commerce. O projeto foi projetado seguindo as melhores práticas de engenharia de software do mercado, focando em manutenibilidade, extensibilidade e alta performance para microsserviços.
+Eu desenvolvi o **SwiftCart**, uma API REST robusta projetada para gerenciar o núcleo de operações de uma plataforma moderna de e-commerce. Estruturei este projeto seguindo as melhores práticas de engenharia de software do mercado, focando em manutenibilidade, extensibilidade e alta performance para microsserviços.
 
-Esta API foi construída como o projeto prático principal do módulo de persistência relacional (JPA/Hibernate) do curso Java Completo.
+Esta API foi construída por mim como o projeto prático principal do módulo de persistência relacional (JPA/Hibernate) do curso Java Completo do professor Nélio Alves.
 
 ---
 
@@ -21,6 +21,15 @@ Esta API foi construída como o projeto prático principal do módulo de persist
   - **PostgreSQL:** Banco de dados relacional de produção de nível corporativo, preparado para escalabilidade e nuvem.
 - **Gerenciador de Dependências:** Maven (organização de pacotes automatizada através do `pom.xml`).
 - **Testes de API:** Postman (coleções de testes para endpoints HTTP).
+
+---
+
+## 🤖 Mentoria e Desenvolvimento Assistido por IA
+
+Durante o desenvolvimento deste projeto, utilizei a IA **Antigravity** (desenvolvida pela equipe do Google DeepMind) como minha mentora técnica e parceira de pair programming. A IA atuou ativamente no meu terminal e na minha IDE de desenvolvimento (a **Antigravity IDE**), auxiliando-me a:
+- Diagnosticar e corrigir mapeamentos de banco de dados e referências circulares complexas na serialização de JSONs.
+- Abstrair conceitos lógicos de relacionamentos ORM (JPA/Hibernate).
+- Planejar a arquitetura de deploy futuro usando Docker e minha própria VPS Hostinger rodando Linux Ubuntu.
 
 ---
 
@@ -77,3 +86,12 @@ src/main/java/com/joabdevelop/swiftcart/
 
 Desenvolvido por **Joabe** - Transição para Engenharia de Software Backend e Modelagem de Dados.  
 Conecte-se comigo no [GitHub](https://github.com/joabdevelop).
+
+```text
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+```
