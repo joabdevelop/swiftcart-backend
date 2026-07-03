@@ -3,10 +3,12 @@ package com.joabdevelop.swiftcart.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.joabdevelop.swiftcart.entities.User;
 import com.joabdevelop.swiftcart.repositories.UserRepository;
+import com.joabdevelop.swiftcart.services.exceptions.DataBaseException;
 import com.joabdevelop.swiftcart.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -32,7 +34,15 @@ public class UserService {
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        if (!repository.existsById(id)) {
+            throw new ResourceNotFoundException(id);
+        }
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataBaseException(e.getMessage() +
+                    ": You can't delete this user because it has dependent orders.");
+        }
     }
 
     public User update(Long id, User obj) {
